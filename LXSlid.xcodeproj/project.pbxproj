@@ -16,7 +16,6 @@
 		8225CB291B2BE06400005EB9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8225CB271B2BE06400005EB9 /* LaunchScreen.xib */; };
 		8225CB351B2BE06400005EB9 /* LXSlidTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB341B2BE06400005EB9 /* LXSlidTests.m */; };
 		8225CB441B2BE11C00005EB9 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */; };
-		8225CB4B1B2BEABF00005EB9 /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB4A1B2BEABF00005EB9 /* MyNavigationController.m */; };
 		E3BAB07E5BCDB39353365194 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D74FA38EA505624905E2F3F5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +47,6 @@
 		8225CB341B2BE06400005EB9 /* LXSlidTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXSlidTests.m; sourceTree = "<group>"; };
 		8225CB421B2BE11C00005EB9 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
-		8225CB491B2BEABF00005EB9 /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
-		8225CB4A1B2BEABF00005EB9 /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 		C8CCF741D9FC77917213DF0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D74FA38EA505624905E2F3F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,8 +108,6 @@
 				8225CB201B2BE06400005EB9 /* RootViewController.m */,
 				8225CB421B2BE11C00005EB9 /* LeftMenuViewController.h */,
 				8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */,
-				8225CB491B2BEABF00005EB9 /* MyNavigationController.h */,
-				8225CB4A1B2BEABF00005EB9 /* MyNavigationController.m */,
 				8225CB221B2BE06400005EB9 /* Main.storyboard */,
 				8225CB251B2BE06400005EB9 /* Images.xcassets */,
 				8225CB271B2BE06400005EB9 /* LaunchScreen.xib */,
@@ -292,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8225CB1B1B2BE06400005EB9 /* AppDelegate.m in Sources */,
-				8225CB4B1B2BEABF00005EB9 /* MyNavigationController.m in Sources */,
 				8225CB181B2BE06400005EB9 /* main.m in Sources */,
 				8225CB211B2BE06400005EB9 /* RootViewController.m in Sources */,
 				8225CB441B2BE11C00005EB9 /* LeftMenuViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "LeftMenuViewController.h"
 #import "SWRevealViewController.h"
+#import "RootViewController.h"
 
 @interface LeftMenuViewController ()
 
@@ -91,6 +92,20 @@ NSMutableArray *menuArray;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIViewController *detialViewController = [[UIViewController alloc] init];
+    detialViewController.view.backgroundColor = [UIColor whiteColor];
+    
+    if (indexPath.row == 0) {
+        [self.revealViewController setFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"] animated:YES];
+    } else {
+        [self.revealViewController setFrontViewController:detialViewController animated:YES];
+    }
+    
+
+}
+
 #pragma mark - Table view data source
 
 
@@ -109,15 +124,7 @@ NSMutableArray *menuArray;
     return cell;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
