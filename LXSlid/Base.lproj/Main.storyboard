@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--首页-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="RootViewController" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                             <constraint firstItem="6iH-lA-hoG" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="eNS-nE-IGV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wGS-Ka-uhI">
+                    <navigationItem key="navigationItem" title="首页" id="wGS-Ka-uhI">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="GEq-hW-6lT"/>
                     </navigationItem>
                     <connections>
@@ -375,7 +375,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

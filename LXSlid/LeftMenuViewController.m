@@ -115,6 +115,11 @@ NSMutableArray *menuArray;
     //否则创建一个新的，然后返回
     UIViewController *newFrontController = nil;
     
+    RootViewController *rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"];
+    
+    newFrontController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
+    /*
     switch (row) {
         case 0: {
             //今日
@@ -165,7 +170,7 @@ NSMutableArray *menuArray;
         default:
             break;
     }
-    
+    */
     [revealViewController pushFrontViewController:newFrontController animated:YES];
     
     
