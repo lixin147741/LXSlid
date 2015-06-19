@@ -48,7 +48,7 @@
         <!--Detial View Controller-->
         <scene sceneID="rDr-f5-lzM">
             <objects>
-                <viewController id="Emr-VV-dVh" customClass="DetialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetialViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Emr-VV-dVh" customClass="DetialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bie-ZC-DrM"/>
                         <viewControllerLayoutGuide type="bottom" id="n5I-Cr-uLi"/>
@@ -119,7 +119,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="xBt-fA-VuD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ncY-YI-yAR" customClass="MyNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MyNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ncY-YI-yAR" customClass="MyNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kOA-E5-zbk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -98,11 +98,11 @@ NSMutableArray *menuArray;
     detialViewController.view.backgroundColor = [UIColor whiteColor];
     
     if (indexPath.row == 0) {
-        [self.revealViewController setFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"] animated:YES];
-        //[self.revealViewController pushFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"] animated:YES];
+        
+        [self.revealViewController pushFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MyNavigationController"] animated:YES];
 
     } else {
-        [self.revealViewController setFrontViewController:detialViewController animated:YES];
+        [self.revealViewController pushFrontViewController:detialViewController animated:YES];
     }
     
 }
