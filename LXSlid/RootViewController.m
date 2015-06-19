@@ -26,7 +26,7 @@
 
 #define PictureHeight 220  //轮播图片的高度
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width//屏幕宽度
-#define ShowWidth 0.5 //左边的菜单弹出来时占屏幕多少
+#define ShowWidth 0.7 //左边的菜单弹出来时占屏幕多少
 #define RootViewCell @"RootViewCell"
 
 #define NAVBAR_CHANGE_POINT 50
@@ -36,6 +36,7 @@
     [super loadView];
     
     [self loadData];
+    
     
     self.tableView.tableHeaderView = ({
         
@@ -65,6 +66,7 @@
         
         headerView;
     });
+     
 }
 
 - (void)viewDidLoad {

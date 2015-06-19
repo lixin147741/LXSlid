@@ -10,11 +10,15 @@
 #import "SWRevealViewController.h"
 #import "RootViewController.h"
 
-@interface LeftMenuViewController ()
+@interface LeftMenuViewController () 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation LeftMenuViewController
+- (IBAction)showConfigureViewController:(id)sender {
+    //显示设置页面
+}
 
 //菜单中的数据
 NSMutableArray *menuArray;
@@ -23,14 +27,13 @@ NSMutableArray *menuArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    //设置背景颜色
+    self.tableView.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    /*
     self.tableView.tableHeaderView = ({
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 180)];
@@ -64,7 +67,7 @@ NSMutableArray *menuArray;
         
         view;
     });
-    
+    */
     [self loadData];
 
 }
@@ -73,11 +76,15 @@ NSMutableArray *menuArray;
 
 - (void)loadData {
     menuArray = [[NSMutableArray alloc] init];
-    [menuArray addObject:@"首页"];
-    [menuArray addObject:@"页面一"];
-    [menuArray addObject:@"页面二"];
-    [menuArray addObject:@"页面三"];
-    [menuArray addObject:@"页面四"];
+    [menuArray addObject:@"今日"];
+    [menuArray addObject:@"赛事"];
+    [menuArray addObject:@"特稿"];
+    [menuArray addObject:@"魔鬼数据"];
+    [menuArray addObject:@"人物"];
+    [menuArray addObject:@"刺猬专栏"];
+    [menuArray addObject:@"拳头解密"];
+    [menuArray addObject:@"图说"];
+    [menuArray addObject:@"PentaQ News"];
     
 }
 
@@ -119,7 +126,12 @@ NSMutableArray *menuArray;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    
     cell.textLabel.text = [menuArray objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    NSString *imageName = [NSString stringWithFormat:@"%@－2", [menuArray objectAtIndex:indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed:imageName];
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
