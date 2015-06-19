@@ -17,7 +17,6 @@
 - (void)loadView {
     [super loadView];
     
-    
     self.view.backgroundColor = [UIColor orangeColor];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -110,14 +110,9 @@
 			children = (
 				8225CB191B2BE06400005EB9 /* AppDelegate.h */,
 				8225CB1A1B2BE06400005EB9 /* AppDelegate.m */,
-				8225CB1F1B2BE06400005EB9 /* RootViewController.h */,
-				8225CB201B2BE06400005EB9 /* RootViewController.m */,
-				8225CB421B2BE11C00005EB9 /* LeftMenuViewController.h */,
-				8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */,
-				82CE62771B34019D00FA430A /* LeftMenuHeaderViewController.h */,
-				82CE62781B34019D00FA430A /* LeftMenuHeaderViewController.m */,
-				821F7EA21B330E180070CB68 /* DetialViewController.h */,
-				821F7EA31B330E180070CB68 /* DetialViewController.m */,
+				82CE627A1B34059000FA430A /* MainController */,
+				82CE627B1B3405AD00FA430A /* LeftMenuViewController */,
+				82CE627D1B3405E100FA430A /* DetialViewController */,
 				82F1AF041B33C74200A4287F /* image.xcassets */,
 				8225CB221B2BE06400005EB9 /* Main.storyboard */,
 				8225CB271B2BE06400005EB9 /* LaunchScreen.xib */,
@@ -151,6 +146,35 @@
 				8225CB331B2BE06400005EB9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82CE627A1B34059000FA430A /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				8225CB201B2BE06400005EB9 /* RootViewController.m */,
+				8225CB1F1B2BE06400005EB9 /* RootViewController.h */,
+			);
+			name = MainController;
+			sourceTree = "<group>";
+		};
+		82CE627B1B3405AD00FA430A /* LeftMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8225CB421B2BE11C00005EB9 /* LeftMenuViewController.h */,
+				82CE62771B34019D00FA430A /* LeftMenuHeaderViewController.h */,
+				82CE62781B34019D00FA430A /* LeftMenuHeaderViewController.m */,
+				8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */,
+			);
+			name = LeftMenuViewController;
+			sourceTree = "<group>";
+		};
+		82CE627D1B3405E100FA430A /* DetialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				821F7EA31B330E180070CB68 /* DetialViewController.m */,
+				821F7EA21B330E180070CB68 /* DetialViewController.h */,
+			);
+			name = DetialViewController;
 			sourceTree = "<group>";
 		};
 		FCF7FD7F1279E1D41D383024 /* Frameworks */ = {

@@ -4,16 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-APParallaxHeader.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-LTNavigationBar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>437C00B4484140444E92D2C3</key>
+		<key>92B02635943C2B23A9D54D54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49E7F01300BF7050227E5328</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AA7AE4225EF1A43428943842</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C4BB853E6ECE8B17FEF0525A</key>
+		<key>95F000E235B3A83E234D99FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

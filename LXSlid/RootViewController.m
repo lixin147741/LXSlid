@@ -8,36 +8,34 @@
 
 #import "RootViewController.h"
 #import "SWRevealViewController.h"
-#import "UINavigationBar+Awesome.h"
 #import "DetialViewController.h"
 
-@interface RootViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *MenuButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *items;
-@property (strong, nonatomic) NSMutableArray *banners;
-@property (strong, nonatomic) UIPageControl *pageControl;
-@property (strong, nonatomic) NSTimer *timer;
+//@property (strong, nonatomic) NSMutableArray *banners;
+//@property (strong, nonatomic) UIPageControl *pageControl;
+//@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
 @implementation RootViewController
 
-#define PictureHeight 220  //轮播图片的高度
+//#define PictureHeight 220  //轮播图片的高度
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width//屏幕宽度
 #define ShowWidth 0.7 //左边的菜单弹出来时占屏幕多少
 #define RootViewCell @"RootViewCell"
 
-#define NAVBAR_CHANGE_POINT 50
+//#define NAVBAR_CHANGE_POINT 50
 
-//添加图片轮播
+
 - (void)loadView {
     [super loadView];
     
-    [self loadData];
     
-    
+    /*
     self.tableView.tableHeaderView = ({
         
         //UIScrollView Settings
@@ -66,11 +64,13 @@
         
         headerView;
     });
-     
+     */
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadData];
     // Do any additional setup after loading the view, typically from a nib.
     
     //SWRevealViewController  Settings
@@ -88,17 +88,19 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:RootViewCell];
-    self.tableView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
+    //self.tableView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
     self.tableView.estimatedRowHeight = self.tableView.rowHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    self.tableView.backgroundColor = [UIColor blackColor];
     //NavagationBar Settings
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
-    
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    /*
     _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(nextBanner) userInfo:nil repeats:YES];
+     */
 }
 
+/*
 - (void)nextBanner {
     
     NSInteger currentPage = _pageControl.currentPage;
@@ -131,9 +133,13 @@
     [header setContentOffset:CGPointMake(currentPage * header.frame.size.width, 0) animated:YES];
 
 }
+*/
 
-#pragma ScrollView delegate
-
+#pragma ScrollViewDelegate    大问题
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+/*
 //监听了两个ScrollView，一个是TableView，一个是TableHeaderView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -161,6 +167,7 @@
     }
     
 }
+*/
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -173,7 +180,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar lt_reset];
 }
 
 
@@ -183,12 +189,14 @@
     for (int i = 0;i <= 20; i++) {
         [_items addObject:[NSString stringWithFormat:@"第%d个",i]];
     }
+    /*
     //加载TableView TableHeaderView中的图片
     _banners = [[NSMutableArray alloc] init];
     [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
     [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
     [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
     [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
+     */
 }
 
 #pragma tableView Datasouse
@@ -215,11 +223,16 @@
     
     DetialViewController *detialViewController = [[DetialViewController alloc] init];
     
-    [self.navigationController pushViewController:detialViewController animated:YES];
     
+    [self.navigationController pushViewController:detialViewController animated:YES];
+    //如果在侧滑菜单显示的时候触发，则隐藏侧滑菜单
+    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+    
+    /*
     //隐藏导航栏
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.navigationController.title = [NSString stringWithFormat:@"第%ld个", (long)indexPath.row];
+     */
 }
 
 @end

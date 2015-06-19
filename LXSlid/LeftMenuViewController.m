@@ -12,7 +12,7 @@
 
 @interface LeftMenuViewController () 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic) NSInteger _presentedRow;
 @end
 
 @implementation LeftMenuViewController
@@ -32,6 +32,7 @@ NSMutableArray *menuArray;
     //设置背景颜色
     self.tableView.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     
     /*
     self.tableView.tableHeaderView = ({
@@ -101,16 +102,74 @@ NSMutableArray *menuArray;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIViewController *detialViewController = [[UIViewController alloc] init];
-    detialViewController.view.backgroundColor = [UIColor whiteColor];
+    NSInteger row = indexPath.row;
     
-    if (indexPath.row == 0) {
-        
-        [self.revealViewController pushFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MyNavigationController"] animated:YES];
-
-    } else {
-        [self.revealViewController pushFrontViewController:detialViewController animated:YES];
+    SWRevealViewController *revealViewController = self.revealViewController;
+    
+    //如果是刚才的，直接返回
+    if (row == self._presentedRow) {
+        [revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+        return;
     }
+    
+    //否则创建一个新的，然后返回
+    UIViewController *newFrontController = nil;
+    
+    switch (row) {
+        case 0: {
+            //今日
+            RootViewController *rootViewController = [[RootViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+        }
+            break;
+        case 1: {
+            //赛事
+        }
+            break;
+        case 2: {
+            //特稿
+        }
+            
+            break;
+        case 3: {
+            //魔鬼数据
+        }
+            
+            break;
+        case 4: {
+            //人物
+        }
+            
+            break;
+        case 5: {
+            //刺猬专栏
+        }
+            
+            break;
+        case 6: {
+            //拳头解密
+        }
+            
+            break;
+        case 7: {
+            //图说
+        }
+            
+            break;
+        case 8: {
+            //PentaQ News
+        }
+            
+            break;
+        default:
+            break;
+    }
+    
+    [revealViewController pushFrontViewController:newFrontController animated:YES];
+    
+    
+    self._presentedRow = row;
     
 }
 
