@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821F7EA41B330E180070CB68 /* DetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F7EA31B330E180070CB68 /* DetialViewController.m */; };
 		8225CB181B2BE06400005EB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB171B2BE06400005EB9 /* main.m */; };
 		8225CB1B1B2BE06400005EB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB1A1B2BE06400005EB9 /* AppDelegate.m */; };
 		8225CB1E1B2BE06400005EB9 /* LXSlid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB1C1B2BE06400005EB9 /* LXSlid.xcdatamodeld */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		66A8574F57D660766BAE4475 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		821F7EA21B330E180070CB68 /* DetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetialViewController.h; sourceTree = "<group>"; };
+		821F7EA31B330E180070CB68 /* DetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetialViewController.m; sourceTree = "<group>"; };
 		8225CB121B2BE06400005EB9 /* LXSlid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXSlid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8225CB161B2BE06400005EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8225CB171B2BE06400005EB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				8225CB201B2BE06400005EB9 /* RootViewController.m */,
 				8225CB421B2BE11C00005EB9 /* LeftMenuViewController.h */,
 				8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */,
+				821F7EA21B330E180070CB68 /* DetialViewController.h */,
+				821F7EA31B330E180070CB68 /* DetialViewController.m */,
 				8225CB221B2BE06400005EB9 /* Main.storyboard */,
 				8225CB251B2BE06400005EB9 /* Images.xcassets */,
 				8225CB271B2BE06400005EB9 /* LaunchScreen.xib */,
@@ -291,6 +296,7 @@
 				8225CB211B2BE06400005EB9 /* RootViewController.m in Sources */,
 				8225CB441B2BE11C00005EB9 /* LeftMenuViewController.m in Sources */,
 				8225CB1E1B2BE06400005EB9 /* LXSlid.xcdatamodeld in Sources */,
+				821F7EA41B330E180070CB68 /* DetialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

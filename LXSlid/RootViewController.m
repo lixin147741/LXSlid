@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "SWRevealViewController.h"
 #import "UINavigationBar+Awesome.h"
+#import "DetialViewController.h"
 
 @interface RootViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
@@ -208,12 +209,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIViewController *detialViewController = [[UIViewController alloc] init];
-    detialViewController.view.backgroundColor = [UIColor blackColor];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //[self.navigationController.navigationBar lt_reset];
+    DetialViewController *detialViewController = [[DetialViewController alloc] init];
+    
     [self.navigationController pushViewController:detialViewController animated:YES];
     
+    //隐藏导航栏
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.title = [NSString stringWithFormat:@"第%ld个", (long)indexPath.row];
 }
 
 @end

@@ -99,11 +99,12 @@ NSMutableArray *menuArray;
     
     if (indexPath.row == 0) {
         [self.revealViewController setFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"] animated:YES];
+        //[self.revealViewController pushFrontViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"] animated:YES];
+
     } else {
         [self.revealViewController setFrontViewController:detialViewController animated:YES];
     }
     
-
 }
 
 #pragma mark - Table view data source

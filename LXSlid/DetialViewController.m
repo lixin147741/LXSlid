@@ -14,14 +14,32 @@
 
 @implementation DetialViewController
 
+- (void)loadView {
+    [super loadView];
+    
+    
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width / 2 - 50, 400, 100, 44);
+    btn.backgroundColor = [UIColor blueColor];
+    [btn setTitle:@"返回" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(goback) forControlEvents: UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)goback {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
