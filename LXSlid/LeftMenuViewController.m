@@ -10,6 +10,15 @@
 #import "SWRevealViewController.h"
 #import "RootViewController.h"
 
+#import "SaishiViewController.h"
+#import "TegaoViewController.h"
+#import "MoguishujuViewController.h"
+#import "RenwuViewController.h"
+#import "CiweizhuanlanViewController.h"
+#import "QuantoujiemiViewController.h"
+#import "TushuoViewController.h"
+#import "PentaqnewsViewController.h"
+
 @interface LeftMenuViewController () 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSInteger _presentedRow;
@@ -115,62 +124,89 @@ NSMutableArray *menuArray;
     //否则创建一个新的，然后返回
     UIViewController *newFrontController = nil;
     
+    /*
     RootViewController *rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"];
     
     newFrontController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
-    /*
+    [rootViewController.navigationItem setTitle:[menuArray objectAtIndex:indexPath.row]];
+    */
+   
     switch (row) {
         case 0: {
             //今日
-            RootViewController *rootViewController = [[RootViewController alloc] init];
-            
+            RootViewController *rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"];
             newFrontController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         }
             break;
         case 1: {
             //赛事
+            SaishiViewController *saishiViewController = [[SaishiViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:saishiViewController];
+            
         }
             break;
         case 2: {
             //特稿
+            TegaoViewController *tegaoViewController = [[TegaoViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:tegaoViewController];
         }
             
             break;
         case 3: {
             //魔鬼数据
+            MoguishujuViewController *moguishujuViewController = [[MoguishujuViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:moguishujuViewController];
         }
             
             break;
         case 4: {
             //人物
+            RenwuViewController *renwuViewController = [[RenwuViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:renwuViewController];
         }
             
             break;
         case 5: {
             //刺猬专栏
+            CiweizhuanlanViewController *ciweizhuanlanViewController = [[CiweizhuanlanViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:ciweizhuanlanViewController];
         }
             
             break;
         case 6: {
             //拳头解密
+            QuantoujiemiViewController *quantoujiemiViewController = [[QuantoujiemiViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:quantoujiemiViewController];
         }
             
             break;
         case 7: {
             //图说
+            TushuoViewController *tushuoViewController = [[TushuoViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:tushuoViewController];
         }
             
             break;
         case 8: {
             //PentaQ News
+            PentaqnewsViewController *pentaqnewsViewController = [[PentaqnewsViewController alloc] init];
+            
+            newFrontController = [[UINavigationController alloc] initWithRootViewController:pentaqnewsViewController];
         }
             
             break;
         default:
             break;
     }
-    */
+    
     [revealViewController pushFrontViewController:newFrontController animated:YES];
     
     

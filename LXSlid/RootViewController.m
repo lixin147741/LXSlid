@@ -92,9 +92,15 @@
     self.tableView.estimatedRowHeight = self.tableView.rowHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor = [UIColor grayColor];
     //NavagationBar Settings
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 50, 30)];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.text = @"首页";
+    [self.navigationItem setTitleView:label];
+    
     /*
     _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(nextBanner) userInfo:nil repeats:YES];
      */
