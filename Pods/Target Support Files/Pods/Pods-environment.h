@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_APParallaxHeader 1
 #define COCOAPODS_VERSION_PATCH_APParallaxHeader 6
 
+// MJRefresh
+#define COCOAPODS_POD_AVAILABLE_MJRefresh
+#define COCOAPODS_VERSION_MAJOR_MJRefresh 2
+#define COCOAPODS_VERSION_MINOR_MJRefresh 0
+#define COCOAPODS_VERSION_PATCH_MJRefresh 2
+
 // SWRevealViewController
 #define COCOAPODS_POD_AVAILABLE_SWRevealViewController
 #define COCOAPODS_VERSION_MAJOR_SWRevealViewController 2

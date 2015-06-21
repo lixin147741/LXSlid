@@ -42,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		66A8574F57D660766BAE4475 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8211FE981B3550E100EA5C22 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		821F7EA21B330E180070CB68 /* DetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetialViewController.h; sourceTree = "<group>"; };
 		821F7EA31B330E180070CB68 /* DetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetialViewController.m; sourceTree = "<group>"; };
 		8225CB121B2BE06400005EB9 /* LXSlid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXSlid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +146,7 @@
 				8225CB271B2BE06400005EB9 /* LaunchScreen.xib */,
 				8225CB1C1B2BE06400005EB9 /* LXSlid.xcdatamodeld */,
 				8225CB151B2BE06400005EB9 /* Supporting Files */,
+				8211FE981B3550E100EA5C22 /* MyPlayground.playground */,
 			);
 			path = LXSlid;
 			sourceTree = "<group>";

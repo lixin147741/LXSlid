@@ -21,16 +21,19 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - APParallaxHeader (0.1.6)
+  - MJRefresh (2.0.2)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - APParallaxHeader (~> 0.1.6)
+  - MJRefresh (~> 2.0.2)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   APParallaxHeader: 854bc48a2487ca12c702f8a236fec0d89cdac5c3
+  MJRefresh: dfaf2303521c1f1ad71f0f9d2fe781ccea3741de
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
 COCOAPODS: 0.37.2
