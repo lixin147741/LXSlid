@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8211FE9A1B36667A00EA5C22 /* CellForOnePicture.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8211FE991B36667A00EA5C22 /* CellForOnePicture.xib */; };
+		8211FE9D1B3669CC00EA5C22 /* OnePictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8211FE9C1B3669CC00EA5C22 /* OnePictureTableViewCell.m */; };
+		8211FEA31B3669F700EA5C22 /* ThreePictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8211FEA21B3669F700EA5C22 /* ThreePictureTableViewCell.m */; };
+		8211FEA61B366B5800EA5C22 /* Artical.m in Sources */ = {isa = PBXBuildFile; fileRef = 8211FEA51B366B5800EA5C22 /* Artical.m */; };
+		8211FEAA1B36963800EA5C22 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 8211FEA91B36963800EA5C22 /* Section.m */; };
+		8211FEAC1B36A64500EA5C22 /* CellForThreePicture.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8211FEAB1B36A64500EA5C22 /* CellForThreePicture.xib */; };
 		821F7EA41B330E180070CB68 /* DetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F7EA31B330E180070CB68 /* DetialViewController.m */; };
 		8225CB181B2BE06400005EB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB171B2BE06400005EB9 /* main.m */; };
 		8225CB1B1B2BE06400005EB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8225CB1A1B2BE06400005EB9 /* AppDelegate.m */; };
@@ -43,6 +49,16 @@
 /* Begin PBXFileReference section */
 		66A8574F57D660766BAE4475 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8211FE981B3550E100EA5C22 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		8211FE991B36667A00EA5C22 /* CellForOnePicture.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellForOnePicture.xib; sourceTree = "<group>"; };
+		8211FE9B1B3669CC00EA5C22 /* OnePictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePictureTableViewCell.h; sourceTree = "<group>"; };
+		8211FE9C1B3669CC00EA5C22 /* OnePictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePictureTableViewCell.m; sourceTree = "<group>"; };
+		8211FEA11B3669F700EA5C22 /* ThreePictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreePictureTableViewCell.h; sourceTree = "<group>"; };
+		8211FEA21B3669F700EA5C22 /* ThreePictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreePictureTableViewCell.m; sourceTree = "<group>"; };
+		8211FEA51B366B5800EA5C22 /* Artical.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artical.m; sourceTree = "<group>"; };
+		8211FEA71B366B6E00EA5C22 /* Artical.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Artical.h; sourceTree = "<group>"; };
+		8211FEA81B36959300EA5C22 /* Section.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		8211FEA91B36963800EA5C22 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		8211FEAB1B36A64500EA5C22 /* CellForThreePicture.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellForThreePicture.xib; sourceTree = "<group>"; };
 		821F7EA21B330E180070CB68 /* DetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetialViewController.h; sourceTree = "<group>"; };
 		821F7EA31B330E180070CB68 /* DetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetialViewController.m; sourceTree = "<group>"; };
 		8225CB121B2BE06400005EB9 /* LXSlid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXSlid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +129,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8211FEA41B366A1600EA5C22 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8211FEA51B366B5800EA5C22 /* Artical.m */,
+				8211FEA71B366B6E00EA5C22 /* Artical.h */,
+				8211FEA81B36959300EA5C22 /* Section.h */,
+				8211FEA91B36963800EA5C22 /* Section.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8211FEB01B36C56A00EA5C22 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		8225CB091B2BE06400005EB9 = {
 			isa = PBXGroup;
 			children = (
@@ -138,9 +172,11 @@
 			children = (
 				8225CB191B2BE06400005EB9 /* AppDelegate.h */,
 				8225CB1A1B2BE06400005EB9 /* AppDelegate.m */,
+				8211FEA41B366A1600EA5C22 /* Models */,
 				82CE627A1B34059000FA430A /* MainController */,
 				82CE627B1B3405AD00FA430A /* LeftMenuViewController */,
 				82CE627D1B3405E100FA430A /* DetialViewController */,
+				8211FEB01B36C56A00EA5C22 /* Helper */,
 				82F1AF041B33C74200A4287F /* image.xcassets */,
 				8225CB221B2BE06400005EB9 /* Main.storyboard */,
 				8225CB271B2BE06400005EB9 /* LaunchScreen.xib */,
@@ -182,6 +218,12 @@
 			children = (
 				8225CB201B2BE06400005EB9 /* RootViewController.m */,
 				8225CB1F1B2BE06400005EB9 /* RootViewController.h */,
+				8211FE991B36667A00EA5C22 /* CellForOnePicture.xib */,
+				8211FEAB1B36A64500EA5C22 /* CellForThreePicture.xib */,
+				8211FE9B1B3669CC00EA5C22 /* OnePictureTableViewCell.h */,
+				8211FE9C1B3669CC00EA5C22 /* OnePictureTableViewCell.m */,
+				8211FEA11B3669F700EA5C22 /* ThreePictureTableViewCell.h */,
+				8211FEA21B3669F700EA5C22 /* ThreePictureTableViewCell.m */,
 				82CE62801B350CF500FA430A /* Other vcs */,
 			);
 			name = MainController;
@@ -323,6 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F1AF051B33C74200A4287F /* image.xcassets in Resources */,
+				8211FE9A1B36667A00EA5C22 /* CellForOnePicture.xib in Resources */,
+				8211FEAC1B36A64500EA5C22 /* CellForThreePicture.xib in Resources */,
 				8225CB241B2BE06400005EB9 /* Main.storyboard in Resources */,
 				8225CB291B2BE06400005EB9 /* LaunchScreen.xib in Resources */,
 			);
@@ -376,9 +420,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8225CB1B1B2BE06400005EB9 /* AppDelegate.m in Sources */,
+				8211FEAA1B36963800EA5C22 /* Section.m in Sources */,
+				8211FEA31B3669F700EA5C22 /* ThreePictureTableViewCell.m in Sources */,
 				8225CB181B2BE06400005EB9 /* main.m in Sources */,
 				82CE62891B350FF100FA430A /* RootTableViewController.m in Sources */,
 				8225CB211B2BE06400005EB9 /* RootViewController.m in Sources */,
+				8211FEA61B366B5800EA5C22 /* Artical.m in Sources */,
 				82CE62791B34019D00FA430A /* LeftMenuHeaderViewController.m in Sources */,
 				82CE628F1B35149400FA430A /* TegaoViewController.m in Sources */,
 				8225CB441B2BE11C00005EB9 /* LeftMenuViewController.m in Sources */,
@@ -387,6 +434,7 @@
 				82CE629E1B35151D00FA430A /* TushuoViewController.m in Sources */,
 				82CE62A11B35153E00FA430A /* PentaqnewsViewController.m in Sources */,
 				82CE62951B3514CE00FA430A /* RenwuViewController.m in Sources */,
+				8211FE9D1B3669CC00EA5C22 /* OnePictureTableViewCell.m in Sources */,
 				82CE62A41B35159300FA430A /* SaishiViewController.m in Sources */,
 				82CE62921B3514B500FA430A /* MoguishujuViewController.m in Sources */,
 				821F7EA41B330E180070CB68 /* DetialViewController.m in Sources */,

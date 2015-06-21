@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellForThreePicture" rowHeight="96" id="ssY-nr-aV7" customClass="ThreePictureTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ssY-nr-aV7" id="35U-Ye-mm6">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="dddd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gr-az-Ne0">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ims-dL-oJ5">
+                        <rect key="frame" x="112" y="37" width="96" height="50"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pdP-ur-sou">
+                        <rect key="frame" x="216" y="37" width="96" height="50"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tON-VV-Sls">
+                        <rect key="frame" x="8" y="37" width="96" height="50"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2gr-az-Ne0" firstAttribute="leading" secondItem="35U-Ye-mm6" secondAttribute="leadingMargin" id="2UC-mA-Gvj"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="leading" secondItem="Ims-dL-oJ5" secondAttribute="trailing" constant="8" symbolic="YES" id="7y3-C3-Yo8"/>
+                    <constraint firstItem="tON-VV-Sls" firstAttribute="centerY" secondItem="Ims-dL-oJ5" secondAttribute="centerY" id="Chg-ze-HQt"/>
+                    <constraint firstItem="tON-VV-Sls" firstAttribute="height" secondItem="Ims-dL-oJ5" secondAttribute="height" id="UmE-JP-IAK"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="trailing" secondItem="35U-Ye-mm6" secondAttribute="trailingMargin" id="WVj-u5-8Ka"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="bottom" secondItem="35U-Ye-mm6" secondAttribute="bottomMargin" id="asO-Cf-hLq"/>
+                    <constraint firstItem="tON-VV-Sls" firstAttribute="top" secondItem="2gr-az-Ne0" secondAttribute="bottom" constant="8" symbolic="YES" id="cH4-XZ-PMs"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="centerY" secondItem="Ims-dL-oJ5" secondAttribute="centerY" id="cKx-1J-doy"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="top" secondItem="2gr-az-Ne0" secondAttribute="bottom" constant="8" symbolic="YES" id="eSS-YI-ddb"/>
+                    <constraint firstItem="tON-VV-Sls" firstAttribute="bottom" secondItem="35U-Ye-mm6" secondAttribute="bottomMargin" id="ieJ-5u-54s"/>
+                    <constraint firstItem="2gr-az-Ne0" firstAttribute="trailing" secondItem="35U-Ye-mm6" secondAttribute="trailingMargin" id="lR6-Wc-PsV"/>
+                    <constraint firstItem="Ims-dL-oJ5" firstAttribute="top" secondItem="2gr-az-Ne0" secondAttribute="bottom" constant="8" symbolic="YES" id="lXP-zT-QKL"/>
+                    <constraint firstItem="tON-VV-Sls" firstAttribute="leading" secondItem="35U-Ye-mm6" secondAttribute="leadingMargin" id="oEw-Mp-cQr"/>
+                    <constraint firstItem="Ims-dL-oJ5" firstAttribute="width" secondItem="tON-VV-Sls" secondAttribute="width" id="ppA-vk-Aph"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="width" secondItem="Ims-dL-oJ5" secondAttribute="width" id="wjB-cN-O87"/>
+                    <constraint firstItem="Ims-dL-oJ5" firstAttribute="leading" secondItem="tON-VV-Sls" secondAttribute="trailing" constant="8" symbolic="YES" id="x5T-0j-acY"/>
+                    <constraint firstItem="pdP-ur-sou" firstAttribute="height" secondItem="Ims-dL-oJ5" secondAttribute="height" id="xde-XS-JdC"/>
+                    <constraint firstItem="2gr-az-Ne0" firstAttribute="top" secondItem="35U-Ye-mm6" secondAttribute="topMargin" id="zHV-bh-xKr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imageView1" destination="tON-VV-Sls" id="5Gp-Xp-aQz"/>
+                <outlet property="imageView2" destination="Ims-dL-oJ5" id="GuP-gN-HNX"/>
+                <outlet property="imageView3" destination="pdP-ur-sou" id="stW-bc-voE"/>
+                <outlet property="label" destination="2gr-az-Ne0" id="7EE-37-UPV"/>
+            </connections>
+            <point key="canvasLocation" x="159" y="376"/>
+        </tableViewCell>
+    </objects>
+</document>

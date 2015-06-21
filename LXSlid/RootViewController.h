@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RootViewController : UIViewController
+
+@property (strong, nonatomic) UINib *nib1;
+@property (strong, nonatomic) UINib *nib2;
+
 @end
 

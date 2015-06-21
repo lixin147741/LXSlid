@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CocoaSecurity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1BC4A0172895A42444021529</key>
+		<key>3DCF804EE728C499432E7510</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41D5CCA56522752B064A3E39</key>
+		<key>793C31DEE2FFF34F4DE3DD83</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5985F1109F0AE005A5454358</key>
+		<key>B1EB6655FBA9E56EA2490E75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B6955709A405EB6C42C882C6</key>
+		<key>B51045D377EDAEA85D109EA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7933C23DBE6D4827AA1EA59</key>
+		<key>CD2A5376BFFD1BCC458757B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB07C2C21BBAB34C30A8A577</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F97688452DE10DE5998F575E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

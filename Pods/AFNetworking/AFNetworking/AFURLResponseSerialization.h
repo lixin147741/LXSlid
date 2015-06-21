@@ -81,7 +81,7 @@
  */
 @property (nonatomic, copy) NSSet *acceptableContentTypes;
 
-/**
+/**AFURLResponseSerialization
  Validates the specified response and data.
 
  In its base implementation, this method checks for an acceptable status code and content type. Subclasses may wish to add other domain-specific checks.

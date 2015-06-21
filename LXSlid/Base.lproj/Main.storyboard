@@ -38,6 +38,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="MenuButton" destination="GEq-hW-6lT" id="oMB-M5-nCO"/>
+                        <outlet property="menuButton" destination="GEq-hW-6lT" id="3Nf-Fh-z4f"/>
                         <outlet property="tableView" destination="6iH-lA-hoG" id="Mtm-Wi-TTf"/>
                     </connections>
                 </viewController>

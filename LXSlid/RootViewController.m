@@ -9,12 +9,22 @@
 #import "RootViewController.h"
 #import "SWRevealViewController.h"
 #import "DetialViewController.h"
+#import "MJRefresh.h"
+#import "AFNetworking.h"
+#import "CocoaSecurity.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+
+#import "Section.h"
+#import "Artical.h"
+#import "OnePictureTableViewCell.h"
+#import "ThreePictureTableViewCell.h"
 
 @interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *MenuButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *items;
+@property (strong, nonatomic) NSMutableArray *articals;
+@property (nonatomic) int page;
 //@property (strong, nonatomic) NSMutableArray *banners;
 //@property (strong, nonatomic) UIPageControl *pageControl;
 //@property (strong, nonatomic) NSTimer *timer;
@@ -26,58 +36,22 @@
 //#define PictureHeight 220  //轮播图片的高度
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width//屏幕宽度
 #define ShowWidth 0.7 //左边的菜单弹出来时占屏幕多少
-#define RootViewCell @"RootViewCell"
 
-//#define NAVBAR_CHANGE_POINT 50
+#define baseURL "http://www.pentaq.com/api/articledaily"
+#define privateKey "d2VuZGFjcC4zMTU4LmNudsdf"
 
-
-- (void)loadView {
-    [super loadView];
-    
-    
-    /*
-    self.tableView.tableHeaderView = ({
-        
-        //UIScrollView Settings
-        UIScrollView *headerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, PictureHeight)];
-        headerView.contentSize = CGSizeMake(_banners.count * ScreenWidth, PictureHeight);
-        
-        for (int i = 0; i < _banners.count; i++) {
-            UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(i * ScreenWidth, 0, ScreenWidth, PictureHeight)];
-            image.image = [_banners objectAtIndex:i];
-            [headerView addSubview:image];
-        }
-        
-        //隐藏横向进度条
-        headerView.showsHorizontalScrollIndicator = NO;
-        //允许分页
-        headerView.pagingEnabled = YES;
-        headerView.delegate = self;
-        
-        //UIPageController Settings
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, PictureHeight - 20, _tableView.frame.size.width, 20)];
-        _pageControl.backgroundColor = [UIColor clearColor];
-        _pageControl.numberOfPages = _banners.count;
-        [_pageControl addTarget:self action:@selector(pageControlTouched) forControlEvents:UIControlEventValueChanged];
-        
-        [_tableView addSubview:_pageControl];
-        
-        headerView;
-    });
-     */
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadData];
+    _articals = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
     
     //SWRevealViewController  Settings
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController) {
-        [self.MenuButton setTarget:revealViewController];
-        [self.MenuButton setAction:@selector(revealToggle:)];
+        [self.menuButton setTarget:revealViewController];
+        [self.menuButton setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:[self.revealViewController panGestureRecognizer]];
         
         revealViewController.rearViewRevealOverdraw = 0;
@@ -87,11 +61,15 @@
     //TableView Settings
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:RootViewCell];
-    //self.tableView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
-    self.tableView.estimatedRowHeight = self.tableView.rowHeight;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //[self.tableView registerClass:[OnePictureTableViewCell class] forCellReuseIdentifier:@"cellForOnePicture"];
+    if (!_nib1 || !_nib2) {
+        _nib1 = [UINib nibWithNibName:@"CellForOnePicture" bundle:nil];
+        [self.tableView registerNib:_nib1 forCellReuseIdentifier:@"cellForOnePicture"];
+        _nib2 = [UINib nibWithNibName:@"CellForThreePicture" bundle:nil];
+        [self.tableView registerNib:_nib2 forCellReuseIdentifier:@"cellForThreePicture"];
+    }
     
+
     self.tableView.backgroundColor = [UIColor grayColor];
     //NavagationBar Settings
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
@@ -101,79 +79,23 @@
     label.text = @"首页";
     [self.navigationItem setTitleView:label];
     
-    /*
-    _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(nextBanner) userInfo:nil repeats:YES];
-     */
+    _page = 1;
+    
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    //加载完界面马上开始加载数据
+    [self.tableView.header beginRefreshing];
+    
+    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    
 }
 
-/*
-- (void)nextBanner {
-    
-    NSInteger currentPage = _pageControl.currentPage;
-    currentPage++;
-    
-    if (currentPage == [_banners count]) {
-        currentPage = 0;
-    }
 
-    UIScrollView *header = (UIScrollView *)_tableView.tableHeaderView;
-    
-    if (currentPage == 0) {
-        [header scrollRectToVisible:CGRectMake(0, 0, _tableView.frame.size.width, _tableView.frame.size.height) animated:NO];
-    } else {
-        [header setContentOffset:CGPointMake(currentPage * header.frame.size.width, 0) animated:YES];
-    }
 
-}
-
-#pragma UIpageControl Target
-
-- (void)pageControlTouched {
-    
-    [_timer invalidate];
-    
-    NSInteger currentPage = _pageControl.currentPage;
-    
-    UIScrollView *header = (UIScrollView *)_tableView.tableHeaderView;
-    
-    [header setContentOffset:CGPointMake(currentPage * header.frame.size.width, 0) animated:YES];
-
-}
-*/
-
-#pragma ScrollViewDelegate    大问题
+#pragma mark - ScrollViewDelegate    大问题
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
 }
-/*
-//监听了两个ScrollView，一个是TableView，一个是TableHeaderView
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (scrollView.class == UITableView.class) {
-        
-        //如果是TableView的下拉事件
-        UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
-        CGFloat offsetY = scrollView.contentOffset.y;
-        if (offsetY > NAVBAR_CHANGE_POINT) {
-            CGFloat alpha = 1 - ((NAVBAR_CHANGE_POINT + 64 - offsetY) / 64);
-            
-            [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
-        } else {
-            [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
-        }
-
-    } else {
-        //如果是滑动Banner事件
-        [_timer invalidate];
-        
-        NSInteger pageWidth = _tableView.bounds.size.width;
-        
-        NSInteger page = [NSNumber numberWithInt:(scrollView.contentOffset.x + pageWidth / 2) / pageWidth].intValue;
-        _pageControl.currentPage = page;
-    }
-    
-}
-*/
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -188,44 +110,134 @@
     [super viewWillDisappear:animated];
 }
 
-
+//传入要加载的页数
 - (void)loadData {
+    
+    NSLog(@"%d",_page);
     //加载tableView中的数据
-    _items = [[NSMutableArray alloc] init];
-    for (int i = 0;i <= 20; i++) {
-        [_items addObject:[NSString stringWithFormat:@"第%d个",i]];
-    }
-    /*
-    //加载TableView TableHeaderView中的图片
-    _banners = [[NSMutableArray alloc] init];
-    [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
-    [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
-    [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
-    [_banners addObject:[UIImage imageNamed:@"bg.jpg"]];
-     */
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSInteger time = [NSDate date].timeIntervalSince1970;
+    CocoaSecurityResult *result = [CocoaSecurity md5:[NSString stringWithFormat:@"%s%ld", privateKey, (long)time]];
+    NSString *token = result.base64;
+    NSMutableDictionary *para = [[NSMutableDictionary alloc] init];
+    [para setObject:[NSNumber numberWithInteger:time] forKey:@"time"];
+    [para setObject:token forKey:@"token"];
+    [para setObject:[NSNumber numberWithInt:2] forKey:@"today"];
+    [para setObject:[NSNumber numberWithInt:_page] forKey:@"page"];
+    [para setObject:[NSNumber numberWithInt:20] forKey:@"limit"];
+
+    [manager GET:@"http://www.pentaq.com/api/articledaily" parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+            if ([responseObject isKindOfClass:NSDictionary.class]) {
+                
+                if ([[responseObject objectForKey:@"state"] integerValue] == 1) {
+                    
+                    //取数据成功
+                    NSArray *sectionsArray = [(NSDictionary *)responseObject objectForKey:@"daily"];
+                    
+                    for (NSDictionary *sec in sectionsArray) {
+                        Section *section = [[Section alloc] init];
+                        section.ymd = [sec objectForKey:@"ymd"];
+                        section.articals = [[NSMutableArray alloc] init];
+                        NSArray *arts = [sec objectForKey:@"data"];
+                        for (NSDictionary *art in arts) {
+                            Artical *artical = [[Artical alloc] init];
+                            artical.author = [art objectForKey:@"author"];//作者
+                            artical.cover = [art objectForKey:@"cover"];//封面
+                            artical.articalID = [[art objectForKey:@"id"] integerValue];//ID
+                            artical.imgURL = [art objectForKey:@"imgurl"];//大图地址
+                            artical.ios_img = [art objectForKey:@"ios_img"];
+                            artical.last_time = [art objectForKey:@"last_time"];
+                            artical.last_ymd = [art objectForKey:@"last_ymd"];
+                            artical.title = [art objectForKey:@"title"];//标题
+                            artical.type = [art objectForKey:@"type"];//类型
+                            [section.articals addObject:artical];
+                        }
+                        [_articals addObject:section];
+                    }
+                }
+                
+            }
+            
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+        [self.tableView reloadData];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF%@",error);
+    }];
+    
+    _page++;
 }
 
-#pragma tableView Datasouse
+#pragma mark - UITableViewDataSource
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([((Artical *)((Section *)_articals[indexPath.section]).articals[indexPath.row]).type isEqualToString:@"1"]) {
+        return 90;
+    } else {
+        return 150;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"";
+    }
+    
+    return ((Section *)_articals[section]).ymd;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [_articals count];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_items count];
+    return [((Section *)_articals[section]).articals count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RootViewCell];
     
-    cell.textLabel.text = [_items objectAtIndex:[indexPath row]];
-    cell.imageView.image = [UIImage imageNamed:@"user"];
+    Artical *artical = (((Section *)_articals[indexPath.section])).articals[indexPath.row];
+
+    /*
+    artical.images = [[NSMutableArray alloc] init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        for (NSString *s in artical.cover) {
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:s]]];
+            [artical.images addObject:image];
+        }
+    });
+     */
     
+    UITableViewCell *cell;
+    
+    if ([artical.type isEqualToString:@"1"]) {
+            
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cellForOnePicture"];
+        ((OnePictureTableViewCell *)cell).label.text = artical.title;
+        [((OnePictureTableViewCell *)cell).imageView sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:nil];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cellForThreePicture"];
+        ((ThreePictureTableViewCell *)cell).label.text = artical.title;
+            
+        [((ThreePictureTableViewCell *)cell).imageView1 sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:nil];
+        [((ThreePictureTableViewCell *)cell).imageView2 sd_setImageWithURL:[NSURL URLWithString:artical.cover[1]] placeholderImage:nil];
+        [((ThreePictureTableViewCell *)cell).imageView3 sd_setImageWithURL:[NSURL URLWithString:artical.cover[2]] placeholderImage:nil];
+    }
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    
 }
 
 #pragma tableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     DetialViewController *detialViewController = [[DetialViewController alloc] init];
     
