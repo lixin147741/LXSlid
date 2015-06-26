@@ -93,14 +93,14 @@
 
 
 #pragma mark - ScrollViewDelegate    大问题
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    
+//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [self scrollViewDidScroll:self.tableView];
+   // [self scrollViewDidScroll:self.tableView];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
 }
@@ -174,6 +174,7 @@
 #pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //根据类型判断行高
     if ([((Artical *)((Section *)_articals[indexPath.section]).articals[indexPath.row]).type isEqualToString:@"1"]) {
         return 90;
     } else {
@@ -216,16 +217,16 @@
     
     if ([artical.type isEqualToString:@"1"]) {
             
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cellForOnePicture"];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellForOnePicture"];
         ((OnePictureTableViewCell *)cell).label.text = artical.title;
-        [((OnePictureTableViewCell *)cell).imageView sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:nil];
+        [((OnePictureTableViewCell *)cell).imageView sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cellForThreePicture"];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellForThreePicture"];
         ((ThreePictureTableViewCell *)cell).label.text = artical.title;
             
-        [((ThreePictureTableViewCell *)cell).imageView1 sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:nil];
-        [((ThreePictureTableViewCell *)cell).imageView2 sd_setImageWithURL:[NSURL URLWithString:artical.cover[1]] placeholderImage:nil];
-        [((ThreePictureTableViewCell *)cell).imageView3 sd_setImageWithURL:[NSURL URLWithString:artical.cover[2]] placeholderImage:nil];
+        [((ThreePictureTableViewCell *)cell).imageView1 sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
+        [((ThreePictureTableViewCell *)cell).imageView2 sd_setImageWithURL:[NSURL URLWithString:artical.cover[1]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
+        [((ThreePictureTableViewCell *)cell).imageView3 sd_setImageWithURL:[NSURL URLWithString:artical.cover[2]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
     }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -237,14 +238,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    DetialViewController *detialViewController = [[DetialViewController alloc] init];
-    
-    
-    [self.navigationController pushViewController:detialViewController animated:YES];
-    //如果在侧滑菜单显示的时候触发，则隐藏侧滑菜单
-    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    
+//    DetialViewController *detialViewController = [[DetialViewController alloc] init];
+//    
+//    
+//    [self.navigationController pushViewController:detialViewController animated:YES];
+//    //如果在侧滑菜单显示的时候触发，则隐藏侧滑菜单
+//    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
     
     /*
     //隐藏导航栏

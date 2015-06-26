@@ -14,17 +14,24 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hRL-Lv-Sad" id="VWt-Sf-bZP">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-i4-3yz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="iAQ-i4-3yz">
                         <rect key="frame" x="212" y="8" width="100" height="73"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="73" id="Zuj-Up-OFl"/>
+                            <constraint firstAttribute="width" constant="100" id="lVe-Pz-azm"/>
                             <constraint firstAttribute="width" constant="100" id="uPE-ik-Im3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Zuj-Up-OFl"/>
+                                <exclude reference="uPE-ik-Im3"/>
+                            </mask>
+                        </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-yd-kK4">
                         <rect key="frame" x="8" y="8" width="196" height="73"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="196" id="j9G-Sb-Yep"/>
+                            <constraint firstAttribute="width" constant="196" id="hKC-pT-ezh"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -33,12 +40,22 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="iAQ-i4-3yz" firstAttribute="leading" secondItem="sYt-yd-kK4" secondAttribute="trailing" constant="8" id="6ai-ja-Np5"/>
-                    <constraint firstItem="sYt-yd-kK4" firstAttribute="bottom" secondItem="VWt-Sf-bZP" secondAttribute="bottomMargin" id="Gbn-TH-E5k"/>
+                    <constraint firstAttribute="trailing" secondItem="iAQ-i4-3yz" secondAttribute="trailing" constant="8" id="Dcf-Ys-Psr"/>
+                    <constraint firstItem="iAQ-i4-3yz" firstAttribute="bottom" secondItem="VWt-Sf-bZP" secondAttribute="bottomMargin" id="PgE-oj-IhV"/>
                     <constraint firstItem="iAQ-i4-3yz" firstAttribute="trailing" secondItem="VWt-Sf-bZP" secondAttribute="trailingMargin" id="SzT-jS-Uzt"/>
-                    <constraint firstItem="sYt-yd-kK4" firstAttribute="leading" secondItem="VWt-Sf-bZP" secondAttribute="leadingMargin" id="qIC-61-w8h"/>
+                    <constraint firstAttribute="bottom" secondItem="sYt-yd-kK4" secondAttribute="bottom" constant="8" id="gU2-lS-d7Z"/>
+                    <constraint firstItem="iAQ-i4-3yz" firstAttribute="top" secondItem="VWt-Sf-bZP" secondAttribute="top" constant="8" id="lDW-2x-T9n"/>
+                    <constraint firstItem="sYt-yd-kK4" firstAttribute="leading" secondItem="VWt-Sf-bZP" secondAttribute="leading" constant="8" id="xt3-OO-0MN"/>
+                    <constraint firstItem="sYt-yd-kK4" firstAttribute="top" secondItem="VWt-Sf-bZP" secondAttribute="top" constant="8" id="yDA-js-i0I"/>
                     <constraint firstAttribute="centerY" secondItem="iAQ-i4-3yz" secondAttribute="centerY" id="yqi-Vn-2Xz"/>
-                    <constraint firstItem="sYt-yd-kK4" firstAttribute="top" secondItem="VWt-Sf-bZP" secondAttribute="topMargin" id="zii-Ga-Gdr"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="6ai-ja-Np5"/>
+                        <exclude reference="SzT-jS-Uzt"/>
+                        <exclude reference="yqi-Vn-2Xz"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageView" destination="iAQ-i4-3yz" id="nMJ-pZ-mnE"/>
