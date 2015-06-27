@@ -9,5 +9,6 @@
 #ifndef LXSlid_Global_h
 #define LXSlid_Global_h
 
+extern NSString * const api = @"sss";
 
 #endif

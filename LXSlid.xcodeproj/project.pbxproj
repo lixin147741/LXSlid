@@ -76,6 +76,7 @@
 		8225CB341B2BE06400005EB9 /* LXSlidTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXSlidTests.m; sourceTree = "<group>"; };
 		8225CB421B2BE11C00005EB9 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		8225CB431B2BE11C00005EB9 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		828DE42C1B3D4F9B00E57B83 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		82CE62771B34019D00FA430A /* LeftMenuHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuHeaderViewController.h; sourceTree = "<group>"; };
 		82CE62781B34019D00FA430A /* LeftMenuHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuHeaderViewController.m; sourceTree = "<group>"; };
 		82CE62871B350FF100FA430A /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
@@ -150,6 +151,7 @@
 		8225CB091B2BE06400005EB9 = {
 			isa = PBXGroup;
 			children = (
+				828DE42C1B3D4F9B00E57B83 /* Global.h */,
 				8225CB141B2BE06400005EB9 /* LXSlid */,
 				8225CB311B2BE06400005EB9 /* LXSlidTests */,
 				8225CB131B2BE06400005EB9 /* Products */,
@@ -566,6 +568,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: quanlan huang (K7GX54DHY2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LXSlid/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -580,6 +586,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: quanlan huang (K7GX54DHY2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LXSlid/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

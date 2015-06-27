@@ -91,12 +91,6 @@
 }
 
 
-
-#pragma mark - ScrollViewDelegate    大问题
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    
-//}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -217,11 +211,11 @@
     
     if ([artical.type isEqualToString:@"1"]) {
             
-        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellForOnePicture"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cellForOnePicture"];
         ((OnePictureTableViewCell *)cell).label.text = artical.title;
-        [((OnePictureTableViewCell *)cell).imageView sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
+        [((OnePictureTableViewCell *)cell).rightImageView sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
     } else {
-        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellForThreePicture"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cellForThreePicture"];
         ((ThreePictureTableViewCell *)cell).label.text = artical.title;
             
         [((ThreePictureTableViewCell *)cell).imageView1 sd_setImageWithURL:[NSURL URLWithString:artical.cover[0]] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
@@ -238,14 +232,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    
-//    DetialViewController *detialViewController = [[DetialViewController alloc] init];
-//    
-//    
-//    [self.navigationController pushViewController:detialViewController animated:YES];
-//    //如果在侧滑菜单显示的时候触发，则隐藏侧滑菜单
-//    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    Artical *artical = (((Section *)_articals[indexPath.section])).articals[indexPath.row];
+    
+    DetialViewController *detialViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetialViewController"];
+    detialViewController.articalID = artical.articalID;
+    
+    
+    [self.navigationController pushViewController:detialViewController animated:YES];
+    //如果在侧滑菜单显示的时候触发，则隐藏侧滑菜单
+    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
     
     /*
     //隐藏导航栏
@@ -253,5 +250,7 @@
     self.navigationController.title = [NSString stringWithFormat:@"第%ld个", (long)indexPath.row];
      */
 }
+
+
 
 @end
