@@ -156,6 +156,7 @@
                         <outlet property="cateNameLabel" destination="XDQ-9c-v3e" id="k3A-fY-uKP"/>
                         <outlet property="headerImageView" destination="DKI-hz-R6t" id="Ouh-Pd-mym"/>
                         <outlet property="heightForWebview" destination="gyc-FQ-pIl" id="JtF-gz-AIx"/>
+                        <outlet property="logoImageHeight" destination="A5K-zB-HVJ" id="EU1-4r-BvL"/>
                         <outlet property="myImageView" destination="BEn-ir-wi8" id="euu-X7-Psw"/>
                         <outlet property="scrollView" destination="uvx-36-xfh" id="UKi-Cf-ZAv"/>
                         <outlet property="timeLabel" destination="iR7-el-QHf" id="Qg2-JR-R5m"/>

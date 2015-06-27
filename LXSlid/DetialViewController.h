@@ -25,7 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
+//webView的限制高度
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightForWebview;
+//最上面的图片的限制高度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoImageHeight;
 
 @end

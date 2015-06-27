@@ -12,12 +12,13 @@
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
 #import "CocoaSecurity.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 //#import "Global.h"
 
 #define baseURL "http://www.pentaq.com/api/ArticleDetail"
 #define privateKey "d2VuZGFjcC4zMTU4LmNudsdf"
 
-@interface DetialViewController () <UIWebViewDelegate>
+@interface DetialViewController () <UIWebViewDelegate, UIScrollViewDelegate>
 
 @end
 
@@ -53,6 +54,9 @@
                 _webView.delegate = self;
                 //_webview.
                 [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewURL]]];
+                [_headerImageView sd_setImageWithURL:[NSURL URLWithString:_headerImageURL] placeholderImage:[UIImage imageNamed:@"LOGO－z"]];
+
+                NSLog(@"_headerImageURL%@",_headerImageURL);
             }
         
         }
@@ -129,6 +133,8 @@
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(goback)];
     [self.view addGestureRecognizer:pan];
+    
+    _scrollView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,8 +144,24 @@
 
 - (void)goback {
     [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
 }
 
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"------------");
+    // 向下拽了多少距离
+    CGFloat down = - scrollView.contentOffset.y;
+    if (down < 0) return;
+    
+    CGRect frame = _headerImageView.frame;
+
+    frame.size.height = _logoImageHeight.constant + down;
+    _headerImageView.frame = frame;
+}
 /*
 #pragma mark - Navigation
 
