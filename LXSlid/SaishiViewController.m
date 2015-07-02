@@ -7,6 +7,7 @@
 //
 
 #import "SaishiViewController.h"
+#import "Section.h"
 
 @interface SaishiViewController ()
 

@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *articals;
 @property (nonatomic) int page;
+
 //@property (strong, nonatomic) NSMutableArray *banners;
 //@property (strong, nonatomic) UIPageControl *pageControl;
 //@property (strong, nonatomic) NSTimer *timer;
@@ -107,7 +108,6 @@
 //传入要加载的页数
 - (void)loadData {
     
-    NSLog(@"%d",_page);
     //加载tableView中的数据
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -176,13 +176,25 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UILabel *label = [[UILabel alloc] init];
+    
+    label.text = ((Section *)_articals[section]).ymd;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    label.textColor = [UIColor colorWithRed:100/255.0 green:100/255.0 blue:100/255.0 alpha:1.0];
+    label.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1.0];
+    
     if (section == 0) {
-        return @"";
+        label.textColor = [UIColor blackColor];
+        return label;
     }
     
-    return ((Section *)_articals[section]).ymd;
+    return label;
+    
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [_articals count];
