@@ -22,7 +22,7 @@
 #define privateKey "d2VuZGFjcC4zMTU4LmNudsdf"
 
 @interface RootTableViewController ()
-- (void)loadData;
+- (void)loadData:(NSString *)singleURL;
 @end
 
 @implementation RootTableViewController
@@ -64,19 +64,19 @@
     
     _page = 1;
     
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData:)];
     //加载完界面马上开始加载数据
     [self.tableView.header beginRefreshing];
     
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData:)];
 
 
 }
 
 #pragma public methods
 
-- (void)loadData {
+- (void)loadData: (NSString *)singleURL {
     //加载tableView中的数据
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
